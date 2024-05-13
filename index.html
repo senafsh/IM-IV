@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css"> </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- unbedingt stehen lassen; Darstellung Chart -->
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> 
+
+    
+</head>
+<body>
+    <header>
+
+    <div class="startScreen">
+    <h1>Mit uns sparsch jedes Johr</h1>
+    <h1>41 Stunde, 1'300 Franke</h1>
+    <h1>und ganz viel Nerve.</h1> 
+    <p>Genau das verschwände Lüüt nämlich im Schnitt,</p>
+    <p>wenn sie uf de Suechi nacheme freie Parkplatz sin.</p>
+    </div>
+
+    </header>
+
+    <main>
+
+    <!-- Container für Leaflet-Karte -->
+    <div id="map"> 
+    
+    </div>
+
+    <!-- Container für das Doughnut-Diagramm -->
+    <div>
+    <canvas id="belegungBasel"></canvas>
+    </div>
+
+    <!-- Container für das Linien-Diagramm -->
+    <div>
+    <canvas id="vorhersageDiagramm"></canvas>
+    </div>
+
+    
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"> </script> <!-- unbedingt stehen lassen;  -->
+    
+
+
+</body>
+</html>
