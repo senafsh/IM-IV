@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css"> </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- unbedingt stehen lassen; Darstellung Chart -->
+
+
+    
+</head>
+<body>
+    <header>
+
+        <h2>Parkhaus Messe</h2>
+        <p>Riehenstrasse 101, 4058 Basel
+        <br>geöffnet 00:00 - 24:00 Uhr</p>
+
+
+    </header>
+
+    <main>
+
+    <h3>Aktuelle Belegung</h3>
+
+    <div>
+    <canvas id="belegungBasel"></canvas>
+    </div>
+        
+    <h3>Geschätzte Belegung</h3>
+
+        <div id="dropDownWochentag">
+            <select id="wochentagSelect">
+                <option value="montag">Montag</option>
+                <option value="dienstag">Dienstag</option>
+                <option value="mittwoch">Mittwoch</option>
+                <option value="donnerstag">Donnerstag</option>
+                <option value="freitag">Freitag</option>
+                <option value="samstag">Samstag</option>
+                <option value="sonntag">Sonntag</option>
+            </select>
+        </div>
+
+    <div>
+    <canvas id="vorhersageDiagramm"></canvas>
+    </div>
+
+    
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/script.js"> </script> <!-- unbedingt stehen lassen;  -->
+    
+
+
+</body>
+</html>
