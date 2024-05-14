@@ -22,33 +22,27 @@
 
     <main>
 
-    <h3>Aktuelle Belegung</h3>
-
-    <div>
-    <canvas id="belegungBasel"></canvas>
-    </div>
-        
-    <h3>Geschätzte Belegung</h3>
-
-        <div id="dropDownWochentag">
-            <select id="wochentagAuswahl">
-                <option value="0">Sonntag</option>
-                <option value="1">Montag</option>
-                <option value="2">Dienstag</option>
-                <option value="3">Mittwoch</option>
-                <option value="4">Donnerstag</option>
-                <option value="5">Freitag</option>
-                <option value="6">Samstag</option>
-            </select>
+        <div id="diagramContainer">
+            <div>
+                <h3>Geschätzte Belegung</h3>
+                <div id="dropDownWochentag">
+                    <select id="wochentagAuswahl">
+                        <option value="0">Sonntag</option>
+                        <option value="1">Montag</option>
+                        <option value="2">Dienstag</option>
+                        <option value="3">Mittwoch</option>
+                        <option value="4">Donnerstag</option>
+                        <option value="5">Freitag</option>
+                        <option value="6">Samstag</option>
+                    </select>
+                </div>
+                <canvas id="vorhersageDiagramm"></canvas>
+            </div>
+            <div>
+                <h3>Aktuelle Belegung</h3>
+                <canvas id="belegungBasel"></canvas>
+            </div>
         </div>
-
-        
-
-    <div>
-    <canvas id="vorhersageDiagramm"></canvas>
-    </div>
-
-    
 
     </main>
 
