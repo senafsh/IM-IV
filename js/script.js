@@ -106,8 +106,15 @@ var customIcon = L.icon({
     // Marker für 'Parkhaus City' setzen
     if (neuesteDaten.latitude && neuesteDaten.longitude) {
       L.marker([parseFloat(neuesteDaten.latitude), parseFloat(neuesteDaten.longitude)], {icon: customIcon}).addTo(map)
-            .bindPopup(`<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}`);
+            .bindPopup(`<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br> <div>
+            <canvas id="vorhersageDiagramm"></canvas>
+            </div>`);
     }
+
+
+
+
+    
 }
 
 
