@@ -66,16 +66,37 @@ async function init() {
             popupAnchor: [1, -34] // Ankerpunkt des Popups
         });
 
-        // Marker für 'Parkhaus City' setzen
-        let popupDiv = document.createElement("div");
-        let neuDat = document.createElement("b");
-        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
-        popupDiv.appendChild(neuDat);
-        let doghnutCanvas = document.createElement("canvas");
-        let linechartCanvas = document.createElement("canvas");
-        popupDiv.appendChild(doghnutCanvas);
-        popupDiv.appendChild(linechartCanvas);
-        popupDiv.style.width = '300px';
+// Marker für 'Parkhaus City' setzen
+let popupDiv = document.createElement("div");
+let neuDat = document.createElement("b");
+neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+popupDiv.appendChild(neuDat);
+
+// Create a new div to hold the charts
+let chartsDiv = document.createElement("div");
+chartsDiv.style.display = 'flex';  // Set the display to flex to arrange children side by side
+chartsDiv.style.justifyContent = 'space-around';  // Distribute space around the items
+chartsDiv.style.alignItems = 'center';  // Align items vertically in the center
+chartsDiv.style.width = '100%';  // Make the charts div take the full width of the popup
+
+// Create the doughnut canvas
+let doghnutCanvas = document.createElement("canvas");
+doghnutCanvas.style.flex = '1';  // Allow the canvas to grow and take up equal space
+doghnutCanvas.style.maxWidth = '50%';  // Limit the maximum width to 50% of the parent
+
+// Create the line chart canvas
+let linechartCanvas = document.createElement("canvas");
+linechartCanvas.style.flex = '1';  // Allow the canvas to grow and take up equal space
+linechartCanvas.style.maxWidth = '50%';  // Limit the maximum width to 50% of the parent
+
+// Append both canvases to the charts div
+chartsDiv.appendChild(doghnutCanvas);
+chartsDiv.appendChild(linechartCanvas);
+
+// Append the charts div to the popup div
+popupDiv.appendChild(chartsDiv);
+popupDiv.style.width = '300px';  // Set the width of the popup div
+
         
 
         // Doughnut-Diagramm erstellen
@@ -136,7 +157,7 @@ async function init() {
         });
         lineChartArray.push(lineChart);
 
-
+        
    
 
         if (neuesteDaten.latitude && neuesteDaten.longitude) {
