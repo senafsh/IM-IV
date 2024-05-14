@@ -28,20 +28,25 @@
 
     <main>
 
+
+
+    <div id="dropDownWochentag">
+        <select id="wochentagAuswahl">
+            <option value="1">Montag</option>
+            <option value="2">Dienstag</option>
+            <option value="3">Mittwoch</option>
+            <option value="4">Donnerstag</option>
+            <option value="5">Freitag</option>
+            <option value="6">Samstag</option>
+            <option value="0">Sonntag</option>
+        </select>
+    </div>
+
+  
     <!-- Container für Leaflet-Karte -->
     <div id="map"> 
     
     </div>
-
-    <!-- Container für das Doughnut-Diagramm -->
-    <div>
-    <canvas id="belegungBasel"></canvas>
-    </div>
-
-    <!-- Container für das Linien-Diagramm -->
-    <!--<div>
-    <canvas id="vorhersageDiagramm"></canvas>
-    </div>-->
 
     
 
@@ -51,7 +56,7 @@
 
     </footer>
 
-    <script src="js/script.js"> </script> <!-- unbedingt stehen lassen;  -->
+    <script src="js/script.js" type="module" > </script> <!-- unbedingt stehen lassen;  -->
     
 
 
