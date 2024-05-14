@@ -21,20 +21,6 @@
     outline: none;  /* Entfernt den Standard-Browser-Fokusrahmen */
 }
 
-#diagramContainer {
-    display: flex;
-    justify-content: space-around; /* Verteilt die `div`s gleichmäßig horizontal */
-    align-items: flex-start; /* Stellt sicher, dass die `div`s von oben beginnen */
-    flex-wrap: wrap; /* Ermöglicht ein Umfließen bei kleinerem Platzangebot */
-}
-
-#diagramContainer > div {
-    flex: 1; /* Jedes `div` erhält einen gleichen Anteil an Platz */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Zentriert die Inhalte innerhalb jedes `div` */
-    margin: 1rem;
-}
 
 canvas {
     width: 100%; /* Vollbreite innerhalb des jeweiligen `div` */
