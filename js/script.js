@@ -1,6 +1,7 @@
 let url = 'https://197272-7.web.fhgr.ch/php/unload.php';
 let data;
 
+// Funktion holt Daten von der API und wandelt sie in JSON um
 async function fetchData(url) {
     try {
         let response = await fetch(url);
@@ -13,6 +14,7 @@ async function fetchData(url) {
     }
 }
 
+// Initialisierung: Daten werden geladen
 async function init() {
     let response = await fetchData(url);
     data = response;
@@ -51,14 +53,14 @@ async function init() {
 
     // Liniendiagramm erstellen
     const vorhersageBasel = document.querySelector('#vorhersageDiagramm');
-    let durchschnittsFreiePlätze = berechneDurchschnittFreiePlätze(parkhausCityDaten);
+    let durchschnittsFreiePlaetze = berechneDurchschnittFreiePlaetze(parkhausCityDaten);
 
     const labelsLine = [...Array(24).keys()].map(stunde => `${stunde < 10 ? '0' : ''}${stunde}:00`);
     const lineData = {
         labels: labelsLine,
         datasets: [{
             label: 'Durchschnittlich freie Plätze',
-            data: durchschnittsFreiePlätze,
+            data: durchschnittsFreiePlaetze,
             borderColor: 'rgb(93, 45, 154)',
             tension: 0.1
         }]
@@ -117,22 +119,40 @@ var customIcon = L.icon({
     
 }
 
+function berechneDurchschnittFreiePlaetze(parkhausCityDaten, wochentagIndex) {
+    // Daten sortieren, damit die neuesten Einträge am Ende stehen
+    let sortierteDaten = parkhausCityDaten.sort((a, b) => new Date(a.published) - new Date(b.published));
 
+    // Nur Daten des ausgewählten Wochentags herausfiltern
+    let wochentagsDaten = sortierteDaten.filter(datum => new Date(datum.published).getDay() === wochentagIndex);
 
-function berechneDurchschnittFreiePlätze(parkhausCityDaten) {
+    // Nur die Daten der letzten vier ausgewählten Wochentage nehmen
+    let letzteVierWochentage = wochentagsDaten.slice(-4);
+
+    // Stundenweise Datenstruktur vorbereiten
     let stundenDaten = new Array(24).fill(0).map(() => []);
-    parkhausCityDaten.forEach(datum => {
+
+    // Daten den Stunden zuordnen
+    letzteVierWochentage.forEach(datum => {
         let date = new Date(datum.published);
-        if (date.getDay() === 1) {
-            let stunde = date.getHours();
-            stundenDaten[stunde].push(datum.free_spaces);
-        }
+        let stunde = date.getHours();
+        stundenDaten[stunde].push(datum.free_spaces);
     });
+
+    // Durchschnitt für jede Stunde berechnen
     return stundenDaten.map(stundenListe => {
         if (stundenListe.length === 0) return 0;
         let durchschnitt = stundenListe.reduce((sum, curr) => sum + curr, 0) / stundenListe.length;
         return Math.ceil(durchschnitt);
     });
 }
+
+document.getElementById('wochentagAuswahl').addEventListener('change', async (event) => {
+    let wochentagIndex = parseInt(event.target.value);
+    let parkhausCityDaten = await fetchData(url); // Daten neu laden
+    let durchschnittsFreiePlaetze = berechneDurchschnittFreiePlaetze(parkhausCityDaten['Parkhaus City'], wochentagIndex);
+    // Aktualisieren Sie hier Ihre Diagramme oder andere UI-Elemente mit den neuen Daten
+});
+
 
 init();
