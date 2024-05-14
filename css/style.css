@@ -21,3 +21,42 @@
     outline: none;  /* Entfernt den Standard-Browser-Fokusrahmen */
 }
 
+#diagramContainer {
+    display: flex;
+    justify-content: space-around; /* Verteilt die `div`s gleichmäßig horizontal */
+    align-items: flex-start; /* Stellt sicher, dass die `div`s von oben beginnen */
+    flex-wrap: wrap; /* Ermöglicht ein Umfließen bei kleinerem Platzangebot */
+}
+
+#diagramContainer > div {
+    flex: 1; /* Jedes `div` erhält einen gleichen Anteil an Platz */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Inhalte innerhalb jedes `div` */
+    margin: 1rem;
+}
+
+canvas {
+    width: 100%; /* Vollbreite innerhalb des jeweiligen `div` */
+    max-width: 100%; /* Stellt sicher, dass die Leinwand nicht breiter als das `div` ist */
+}
+
+h3 {
+    text-align: center; /* Zentriert die Überschriften */
+    margin-bottom: 0.5em; /* Kleiner Abstand unter den Titeln */
+}
+
+#dropDownWochentag {
+    width: 100%; /* Stellt sicher, dass das Dropdown die volle Breite seines `div` einnimmt */
+    padding: 1rem 0; /* Vertikaler Abstand vor und nach dem Dropdown */
+    box-sizing: border-box; /* Beinhaltet Padding und Border in der Breite */
+}
+
+select {
+    width: 100%; /* Vollbreite des Dropdown */
+    padding: 0.5em; /* Komfortables Innenpolster */
+    margin: 0 auto; /* Zentriert das Dropdown-Menü horizontal */
+    display: block; /* Stellt sicher, dass das Element die Breite korrekt ausfüllt */
+}
+
+
