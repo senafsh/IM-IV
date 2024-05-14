@@ -7,6 +7,7 @@ let lineChartArray = [];
 let wochenTagAuswahl = document.getElementById('wochentagAuswahl');
 
 
+
 // Funktion holt Daten von der API und wandelt sie in JSON um
 async function fetchData(url) {
     try {
