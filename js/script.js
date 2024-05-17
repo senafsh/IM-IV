@@ -55,8 +55,17 @@ async function init() {
         const total_spaces = neuesteDaten['total_spaces'];
         const occupied_spaces = total_spaces - free_spaces;
 
+<<<<<<< Updated upstream
         // console.log('Freie Plätze:', free_spaces);
         // console.log('Besetzte Plätze:', occupied_spaces);
+=======
+
+    new Chart(belegungBasel, {
+        type: 'doughnut',
+        data: doughnutData,
+        options: {}
+    });
+>>>>>>> Stashed changes
 
          // Benutzerdefiniertes Icon für den Marker
          var customIcon = L.icon({
@@ -230,3 +239,8 @@ function fillLineChart(chart, pDaten, dayIndex) {
 
 
 init();
+
+
+
+
+
