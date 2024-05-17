@@ -239,8 +239,3 @@ function fillLineChart(chart, pDaten, dayIndex) {
 
 
 init();
-
-
-
-
-
