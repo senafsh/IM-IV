@@ -55,17 +55,8 @@ async function init() {
         const total_spaces = neuesteDaten['total_spaces'];
         const occupied_spaces = total_spaces - free_spaces;
 
-<<<<<<< Updated upstream
         // console.log('Freie Plätze:', free_spaces);
         // console.log('Besetzte Plätze:', occupied_spaces);
-=======
-
-    new Chart(belegungBasel, {
-        type: 'doughnut',
-        data: doughnutData,
-        options: {}
-    });
->>>>>>> Stashed changes
 
          // Benutzerdefiniertes Icon für den Marker
          var customIcon = L.icon({
@@ -75,37 +66,17 @@ async function init() {
             popupAnchor: [1, -34] // Ankerpunkt des Popups
         });
 
-// Marker für 'Parkhaus City' setzen
-let popupDiv = document.createElement("div");
-let neuDat = document.createElement("b");
-neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
-popupDiv.appendChild(neuDat);
-
-// Create a new div to hold the charts
-let chartsDiv = document.createElement("div");
-chartsDiv.style.display = 'flex';  // Set the display to flex to arrange children side by side
-chartsDiv.style.justifyContent = 'space-around';  // Distribute space around the items
-chartsDiv.style.alignItems = 'center';  // Align items vertically in the center
-chartsDiv.style.width = '100%';  // Make the charts div take the full width of the popup
-
-// Create the doughnut canvas
-let doghnutCanvas = document.createElement("canvas");
-doghnutCanvas.style.flex = '1';  // Allow the canvas to grow and take up equal space
-doghnutCanvas.style.maxWidth = '50%';  // Limit the maximum width to 50% of the parent
-
-// Create the line chart canvas
-let linechartCanvas = document.createElement("canvas");
-linechartCanvas.style.flex = '1';  // Allow the canvas to grow and take up equal space
-linechartCanvas.style.maxWidth = '50%';  // Limit the maximum width to 50% of the parent
-
-// Append both canvases to the charts div
-chartsDiv.appendChild(doghnutCanvas);
-chartsDiv.appendChild(linechartCanvas);
-
-// Append the charts div to the popup div
-popupDiv.appendChild(chartsDiv);
-popupDiv.style.width = '300px';  // Set the width of the popup div
-
+        // Marker für 'Parkhaus City' setzen
+        let popupDiv = document.createElement("div");
+        popupDiv.classList.add('popup-content');
+        let neuDat = document.createElement("b");
+        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+        popupDiv.appendChild(neuDat);
+        let doghnutCanvas = document.createElement("canvas");
+        let linechartCanvas = document.createElement("canvas");
+        popupDiv.appendChild(doghnutCanvas);
+        popupDiv.appendChild(linechartCanvas);
+    
         
 
         // Doughnut-Diagramm erstellen
@@ -166,7 +137,7 @@ popupDiv.style.width = '300px';  // Set the width of the popup div
         });
         lineChartArray.push(lineChart);
 
-        
+
    
 
         if (neuesteDaten.latitude && neuesteDaten.longitude) {
@@ -236,6 +207,28 @@ function fillLineChart(chart, pDaten, dayIndex) {
     chart.data.datasets[0].data = durchschnittsFreiePlaetze;
     chart.update();
 }
+// Dynamische Anpassung der Kartenhöhe
+window.addEventListener('resize', function() {
+    let mapElement = document.getElementById('map');
+    if (window.innerWidth <= 600) {
+        mapElement.style.height = '300px';
+    } else if (window.innerWidth <= 1024) {
+        mapElement.style.height = '500px';
+    } else {
+        mapElement.style.height = '600px';
+    }
+});
 
+// Initiale Ausführung
+(function() {
+    let mapElement = document.getElementById('map');
+    if (window.innerWidth <= 600) {
+        mapElement.style.height = '300px';
+    } else if (window.innerWidth <= 1024) {
+        mapElement.style.height = '500px';
+    } else {
+        mapElement.style.height = '600px';
+    }
+})();
 
 init();
