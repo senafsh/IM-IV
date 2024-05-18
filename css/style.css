@@ -1,3 +1,43 @@
+body {
+    background-color: #E3DCEC; /* Violette Hintergrundfarbe */
+    
+
+}
+
+.startScreen h1, .startScreen p {
+    color: #EC5C3C; /* Orange Farbe */
+}
+.startScreen p {
+    font-family: Lato, sans-serif; /* Serifenlose Schriftart */
+   
+}
+
+.startScreen h1 {
+    font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
+   
+}
+
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40vh; /* Volle Höhe des Viewports */
+    text-align: left; /* Text linksbündig */
+    padding-left: 2rem; /* Abstand vom linken Rand */
+    width: calc(100% - 4rem); /* Reduziert die Breite, um Platz für Padding zu lassen */
+
+}
+
+#mapContainer {
+    padding: 7%; /* Rand um die Karte */
+    background-color: #5D2D9A; /* Blauer Hintergrund */
+    margin: 0 auto; /* Zentriert den Container */
+    max-width: 100%; /* Begrenzt die maximale Breite des Containers */
+    box-sizing: border-box;
+}
+
+
 #map {
     height: 600px; 
     width: 100%
@@ -7,13 +47,21 @@
     filter: grayscale(100%) !important;
 }
 
+#dropDownWochentag {
+    width: 100%; /* Stellt sicher, dass das Dropdown die volle Breite seines `div` einnimmt */
+    padding: 1rem 0; /* Vertikaler Abstand vor und nach dem Dropdown */
+    box-sizing: border-box; /* Beinhaltet Padding und Border in der Breite */
+    position: relative; 
+}
 
 #dropDownWochentag select {
-    width: 200px;  /* Breite des Dropdowns */
+    width: 33%;  /* Breite des Dropdowns */
     padding: 8px;  /* Innenabstand für bessere Lesbarkeit */
     border: 0.2em solid #E3DCEC;  /* Rahmen des Dropdowns */
     border-radius: 4px;  /* Abgerundete Ecken */
     font-size: 16px;  /* Schriftgröße */
+    position: relative; /* Relative Positionierung innerhalb des Containers */
+    z-index: 10; /* Stellt sicher, dass das Dropdown-Menü über anderen Elementen liegt */
 }
 
 #dropDownWochentag select:focus {
@@ -21,22 +69,17 @@
     outline: none;  /* Entfernt den Standard-Browser-Fokusrahmen */
 }
 
-
 canvas {
     width: 100%; /* Vollbreite innerhalb des jeweiligen `div` */
     max-width: 100%; /* Stellt sicher, dass die Leinwand nicht breiter als das `div` ist */
 }
 
-h3 {
+/*h3 {
     text-align: center; /* Zentriert die Überschriften */
-    margin-bottom: 0.5em; /* Kleiner Abstand unter den Titeln */
-}
+    /*margin-bottom: 0.5em;  
+} */
 
-#dropDownWochentag {
-    width: 100%; /* Stellt sicher, dass das Dropdown die volle Breite seines `div` einnimmt */
-    padding: 1rem 0; /* Vertikaler Abstand vor und nach dem Dropdown */
-    box-sizing: border-box; /* Beinhaltet Padding und Border in der Breite */
-}
+
 
 select {
     width: 100%; /* Vollbreite des Dropdown */
@@ -45,4 +88,116 @@ select {
     display: block; /* Stellt sicher, dass das Element die Breite korrekt ausfüllt */
 }
 
+/* Mobile Styles */
+@media only screen and (max-width: 600px) {
+    #map {
+        height: 300px; /* Reduziere die Höhe der Karte auf mobilen Geräten */
+    }
+
+    .startScreen h1 {
+        font-size: 2em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
+        line-height: 1.2;
+        ; /* Kleineren Zeilenabstand für h1 */
+    }
+
+    .startScreen p {
+        font-size: 1em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
+        line-height: 1.2;
+    }
+
+    #dropDownWochentag {
+        padding: 0.5rem 0; /* Reduziere den vertikalen Abstand */
+    }
+
+    #dropDownWochentag select {
+        font-size: 20px; /* Kleinere Schriftgröße für das Dropdown-Menü */
+        padding: 6px; /* Weniger Innenabstand */
+    }
+
+    .popup-content {
+        width: 90%; /* Maximal 90% der Bildschirmbreite auf mobilen Geräten */
+        max-width: 300px; /* Höchstens 300px breit */
+        
+    }
+
+    .popup-content canvas {
+        max-width: 100%; /* Stellen Sie sicher, dass das Canvas-Element nicht breiter als sein Container ist */
+        max-width: 350px; /* Höchstens 350px breit */
+        padding: 10px; /* Innenabstand für das Popup */
+    }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    #map {
+        height: 500px; /* Angepasste Höhe der Karte für Tablets */
+    }
+
+    .startScreen h1 {
+        font-size: 3em; /* Angepasste Schriftgröße für Tablets */
+        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+    }
+
+    .startScreen p {
+        font-size: 1.5em; /* Angepasste Schriftgröße für Tablets */
+        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+    }
+
+    #dropDownWochentag select {
+        font-size: 16px;
+        padding: 8px;
+    }
+    .popup-content {
+        width: 80%; /* Maximal 80% der Bildschirmbreite auf Tablets */
+        max-width: 400px; /* Höchstens 400px breit */
+    }
+
+    .popup-content canvas {
+        max-width: 100%; /* Stellen Sie sicher, dass das Canvas-Element nicht breiter als sein Container ist */
+    }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1025px) {
+    #map {
+        height: 600px;
+    }
+
+    .startScreen h1 {
+        font-size: 4em; /* Größere Schriftgröße für Desktops */
+        line-height: 0.8; /* Kleineren Zeilenabstand für h1 */
+    }
+
+    .startScreen p {
+        font-size: 1.5em; /* Größere Schriftgröße für Desktops */
+        line-height: 0.8;
+    }
+
+    #dropDownWochentag select {
+        font-size: 16px;
+        padding: 8px;
+    }
+    .popup-content {
+        width: 70%; /* Maximal 70% der Bildschirmbreite auf Desktops */
+        max-width: 500px; /* Höchstens 500px breit */
+    }
+
+    .popup-content canvas {
+        max-width: 100%; /* Stellen Sie sicher, dass das Canvas-Element nicht breiter als sein Container ist */
+    }
+}
+
+
+.popup-content {
+    padding: 30px; /* Fügen Sie ein wenig Innenabstand hinzu */
+    background: white; /* Hintergrundfarbe */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefe */
+}
+
+.popup-content b {
+    font-size: 1.2em; /* Schriftgröße für den Text im Popup */
+}
+
+/* Additional Media Queries for responsive mode in browser tools */
 
