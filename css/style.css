@@ -5,28 +5,30 @@ body {
 }
 
 .startScreen h1, .startScreen p {
-    color: #EC5C3C; /* Orange Farbe */
-}
-.startScreen p {
-    font-family: Lato, sans-serif; /* Serifenlose Schriftart */
-   
-}
-
-.startScreen h1 {
-    font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
-   
+    color: #ec5c3c; /* Orange Farbe */
+    
 }
 
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    height: 40vh; /* Volle Höhe des Viewports */
-    text-align: left; /* Text linksbündig */
-    padding-left: 2rem; /* Abstand vom linken Rand */
-    width: calc(100% - 4rem); /* Reduziert die Breite, um Platz für Padding zu lassen */
+    align-items: flex-start;
+    height: auto;
+    text-align: left;
+    padding: 2rem;
+    width: calc(100% - 4rem);
+    box-sizing: border-box;
+}
 
+.header-image {
+    width: 100px; /* Breite des Bildes, nach Bedarf anpassen */
+    height: auto; /* Höhe automatisch, um das Seitenverhältnis beizubehalten */
+    position: absolute; /* Absolute Positionierung */
+    top: 2rem; /* Abstand vom oberen Rand */
+    right: 2rem; /* Abstand vom rechten Rand */
+    max-width: 10%; /* Maximal 10% der Bildschirmbreite */
 }
 
 #mapContainer {
@@ -95,14 +97,23 @@ select {
     }
 
     .startScreen h1 {
+        font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
         font-size: 2em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
         line-height: 1.2;
         ; /* Kleineren Zeilenabstand für h1 */
     }
 
     .startScreen p {
+        font-family: Lato, sans-serif; /* Serifenlose Schriftart */
         font-size: 1em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
         line-height: 1.2;
+    }
+
+    .header-image {
+        width: 50px; /* Kleinere Breite für mobile Geräte */
+        top: 1rem; /* Weniger Abstand vom oberen Rand */
+        right: 1rem; /* Weniger Abstand vom rechten Rand */
+        max-width: 20%; /* Maximal 20% der Bildschirmbreite */
     }
 
     #dropDownWochentag {
@@ -134,13 +145,22 @@ select {
     }
 
     .startScreen h1 {
+        font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
         font-size: 3em; /* Angepasste Schriftgröße für Tablets */
         line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
     }
 
     .startScreen p {
+        font-family: Lato, sans-serif; /* Serifenlose Schriftart */
         font-size: 1.5em; /* Angepasste Schriftgröße für Tablets */
         line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+    }
+
+    .header-image {
+        width: 75px; /* Angepasste Breite für Tablets */
+        top: 1.5rem; /* Angepasster Abstand vom oberen Rand */
+        right: 1.5rem; /* Angepasster Abstand vom rechten Rand */
+        max-width: 15%; /* Maximal 15% der Bildschirmbreite */
     }
 
     #dropDownWochentag select {
@@ -164,13 +184,22 @@ select {
     }
 
     .startScreen h1 {
-        font-size: 4em; /* Größere Schriftgröße für Desktops */
-        line-height: 0.8; /* Kleineren Zeilenabstand für h1 */
+        font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
+        font-size: 3em; /* Größere Schriftgröße für Desktops */
+        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+        padding-top: 1em;
+        
     }
-
     .startScreen p {
+        font-family: Lato, sans-serif; /* Serifenlose Schriftart */
         font-size: 1.5em; /* Größere Schriftgröße für Desktops */
-        line-height: 0.8;
+        line-height: 1.5;
+    }
+    .header-image {
+        width: 100px; /* Standardbreite für Desktops */
+        top: 2rem; /* Abstand vom oberen Rand */
+        right: 2rem; /* Abstand vom rechten Rand */
+        max-width: 10%; /* Maximal 10% der Bildschirmbreite */
     }
 
     #dropDownWochentag select {
