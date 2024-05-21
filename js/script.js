@@ -70,7 +70,7 @@ async function init() {
         let popupDiv = document.createElement("div");
         popupDiv.classList.add('popup-content');
         let neuDat = document.createElement("b");
-        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätzee: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
         popupDiv.appendChild(neuDat);
         let doghnutCanvas = document.createElement("canvas");
         let linechartCanvas = document.createElement("canvas");
@@ -141,10 +141,24 @@ async function init() {
    
 
         if (neuesteDaten.latitude && neuesteDaten.longitude) {
-            L.marker([parseFloat( neuesteDaten.latitude), parseFloat(neuesteDaten.longitude)],
-                {icon: customIcon})
+            let marker = L.marker([parseFloat(neuesteDaten.latitude), parseFloat(neuesteDaten.longitude)], { icon: customIcon })
                 .addTo(map).bindPopup(popupDiv);
+        
+            // Füge einen Event-Listener hinzu, der die Karte auf den Marker zentriert, wenn das Popup geöffnet wird
+            marker.on('popupopen', function (e) {
+                // Neue Variable für die Position des Markers
+                let markerLatLng = e.target.getLatLng();
+                
+                // Berechne die neue Position, um Platz für das Popup zu schaffen
+                let offset = [0, 250]; // Beispiel-Offset: 100 Pixel nach oben
+                let newLatLng = map.project(markerLatLng).subtract(offset);
+                newLatLng = map.unproject(newLatLng);
+                
+                // Karte auf die neue Position zentrieren
+                map.setView(newLatLng, map.getZoom(), { animate: true });
+            });
         }
+                
 
         
         fillLineChart(lineChart, parkhausCityDaten, wti) 
