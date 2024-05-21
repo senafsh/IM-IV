@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css"> </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- unbedingt stehen lassen; Darstellung Chart -->
+    
+
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -17,36 +19,32 @@
     <header>
 
     <div class="startScreen">
-    <h1>Mit uns sparsch jedes Johr</h1>
-    <h1>41 Stunde, 1'300 Franke</h1>
-    <h1>und ganz viel Nerve.</h1> 
-    <p>Genau das verschwände Lüüt nämlich im Schnitt,</p>
-    <p>wenn sie uf de Suechi nacheme freie Parkplatz sin.</p>
+        <h1>Mit uns sparsch jedes Johr <br> 41 Stunde, 1'300 Franke <br> und ganz viel Nerve.</h1> 
+        <p>Genau das verschwände Lüüt nämlich im Schnitt,<br> wenn sie uf de Suechi nacheme freie Parkplatz sin.</p>
     </div>
-
+        <img src="Bilder/Logo-Parkly-SW.png" alt="Logo" class="header-image">
     </header>
 
     <main>
 
 
-
-    <div id="dropDownWochentag">
-        <select id="wochentagAuswahl">
-            <option value="1">Montag</option>
-            <option value="2">Dienstag</option>
-            <option value="3">Mittwoch</option>
-            <option value="4">Donnerstag</option>
-            <option value="5">Freitag</option>
-            <option value="6">Samstag</option>
-            <option value="0">Sonntag</option>
-        </select>
-    </div>
-
-  
-    <!-- Container für Leaflet-Karte -->
-    <div id="map"> 
+        <div id="dropDownWochentag">
+            <select id="wochentagAuswahl">
+                <option value="1">Montag</option>
+                <option value="2">Dienstag</option>
+                <option value="3">Mittwoch</option>
+                <option value="4">Donnerstag</option>
+                <option value="5">Freitag</option>
+                <option value="6">Samstag</option>
+                <option value="0">Sonntag</option>
+            </select>
+        </div>
+        
     
-    </div>
+        <!-- Container für Leaflet-Karte -->
+        <div id="mapContainer">
+            <div id="map"></div>
+        </div>
 
     
 

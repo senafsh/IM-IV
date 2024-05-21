@@ -68,14 +68,15 @@ async function init() {
 
         // Marker für 'Parkhaus City' setzen
         let popupDiv = document.createElement("div");
+        popupDiv.classList.add('popup-content');
         let neuDat = document.createElement("b");
-        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätzee: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
         popupDiv.appendChild(neuDat);
         let doghnutCanvas = document.createElement("canvas");
         let linechartCanvas = document.createElement("canvas");
         popupDiv.appendChild(doghnutCanvas);
         popupDiv.appendChild(linechartCanvas);
-        popupDiv.style.width = '300px';
+    
         
 
         // Doughnut-Diagramm erstellen
@@ -140,10 +141,24 @@ async function init() {
    
 
         if (neuesteDaten.latitude && neuesteDaten.longitude) {
-            L.marker([parseFloat( neuesteDaten.latitude), parseFloat(neuesteDaten.longitude)],
-                {icon: customIcon})
+            let marker = L.marker([parseFloat(neuesteDaten.latitude), parseFloat(neuesteDaten.longitude)], { icon: customIcon })
                 .addTo(map).bindPopup(popupDiv);
+        
+            // Füge einen Event-Listener hinzu, der die Karte auf den Marker zentriert, wenn das Popup geöffnet wird
+            marker.on('popupopen', function (e) {
+                // Neue Variable für die Position des Markers
+                let markerLatLng = e.target.getLatLng();
+                
+                // Berechne die neue Position, um Platz für das Popup zu schaffen
+                let offset = [0, 250]; // Beispiel-Offset: 100 Pixel nach oben
+                let newLatLng = map.project(markerLatLng).subtract(offset);
+                newLatLng = map.unproject(newLatLng);
+                
+                // Karte auf die neue Position zentrieren
+                map.setView(newLatLng, map.getZoom(), { animate: true });
+            });
         }
+                
 
         
         fillLineChart(lineChart, parkhausCityDaten, wti) 
@@ -206,6 +221,28 @@ function fillLineChart(chart, pDaten, dayIndex) {
     chart.data.datasets[0].data = durchschnittsFreiePlaetze;
     chart.update();
 }
+// Dynamische Anpassung der Kartenhöhe
+window.addEventListener('resize', function() {
+    let mapElement = document.getElementById('map');
+    if (window.innerWidth <= 600) {
+        mapElement.style.height = '300px';
+    } else if (window.innerWidth <= 1024) {
+        mapElement.style.height = '500px';
+    } else {
+        mapElement.style.height = '600px';
+    }
+});
 
+// Initiale Ausführung
+(function() {
+    let mapElement = document.getElementById('map');
+    if (window.innerWidth <= 600) {
+        mapElement.style.height = '300px';
+    } else if (window.innerWidth <= 1024) {
+        mapElement.style.height = '500px';
+    } else {
+        mapElement.style.height = '600px';
+    }
+})();
 
 init();
