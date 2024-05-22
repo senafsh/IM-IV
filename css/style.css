@@ -32,7 +32,7 @@ header {
 }
 
 #mapContainer {
-    padding: 7%; /* Rand um die Karte */
+    padding: 2%; /* Rand um die Karte */
     background-color: #5D2D9A; /* Blauer Hintergrund */
     margin: 0 auto; /* Zentriert den Container */
     max-width: 100%; /* Begrenzt die maximale Breite des Containers */
@@ -184,22 +184,22 @@ select {
     }
 
     .startScreen h1 {
-        font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
-        font-size: 3em; /* Größere Schriftgröße für Desktops */
-        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+        font-family: 'Abhaya Libre', bold;
+        font-size: 5em;
+        line-height: 1.5;
         padding-top: 1em;
         
     }
     .startScreen p {
         font-family: Lato, sans-serif; /* Serifenlose Schriftart */
-        font-size: 1.5em; /* Größere Schriftgröße für Desktops */
+        font-size: 2.0em; /* Größere Schriftgröße für Desktops */
         line-height: 1.5;
     }
     .header-image {
-        width: 100px; /* Standardbreite für Desktops */
+        width: 300px; /* Standardbreite für Desktops */
         top: 2rem; /* Abstand vom oberen Rand */
         right: 2rem; /* Abstand vom rechten Rand */
-        max-width: 10%; /* Maximal 10% der Bildschirmbreite */
+        max-width: 15%; /* Maximal 10% der Bildschirmbreite */
     }
 
     #dropDownWochentag select {
