@@ -70,7 +70,7 @@ async function init() {
         let popupDiv = document.createElement("div");
         popupDiv.classList.add('popup-content');
         let neuDat = document.createElement("b");
-        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätzee: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
         popupDiv.appendChild(neuDat);
         let doghnutCanvas = document.createElement("canvas");
         let linechartCanvas = document.createElement("canvas");
@@ -182,7 +182,7 @@ function berechneDurchschnittFreiePlaetze(parkhausCityDaten, wochentagIndex) {
     // Nur Daten des ausgewählten Wochentags herausfiltern
     let wochentagsDaten = sortierteDaten.filter(datum => new Date(datum.published).getDay() === wochentagIndex);
     // Nur die Daten der letzten vier ausgewählten Wochentage nehmen
-    let letzteVierWochentage = wochentagsDaten.slice(-(1*24*4)); //letzte 5 Wochen -> 5*24*4
+    let letzteVierWochentage = wochentagsDaten.slice(-(4*24*4)); //letzte x Wochen -> x*24*4
     // Stundenweise Datenstruktur vorbereiten
     let stundenDaten = new Array(24).fill(0).map(() => []);
 
