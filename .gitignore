@@ -1,2 +1,5 @@
-.vscode/*
-js/script.js
+.vscode/
+.DS_Store
+.git
+php/api-config.php
+php/config.php
