@@ -13,7 +13,7 @@
 
 ### Schwierigkeiten 
 -	Die Darstellung der Karte mit den unterschiedlichen Markern war eine Herausforderung. 
--	Auf den Marker sollte ein Popup erscheinen mit unseren beiden Diagrammen. Das Popup so zu stylen, dass beide Diagramme gut lesbar angezeigt werden, war eine grosse Herausforderung. Hier wäre es vermutlich einfacher gewesen, wenn wir mit einer neu geöffneten Seite hätten arbeiten können.  
+-	Auf den Marker sollte ein Popup erscheinen mit unseren beiden Diagrammen. Das Popup so zu stylen, dass beide Diagramme gut lesbar angezeigt werden, war eine grosse Herausforderung, die wir leider auch nicht ganz 100 % lösen konnten. In der Desktop-Ansicht ist das Popup nun gut lesbar und wird schön dargestellt. In der Mobile-Version waren wir etwas eingeschränkt, da sich das Liniendiagramm nicht mehr lesen lässt, wenn wir das Popup zu klein machen. Anstelle eines Popups wäre es vermutlich einfacher gewesen, wir hätten entweder mit einer neuen Seite gearbeitet, oder wir hätten die Parkhäuser nicht auf einer Karte, sondern in einer Tabelle dargestellt. Dennoch sind wir stolz mit dem Ergebnis und haben einiges gelernt für zukünftige Projekte. 
 
 ### Benutzte Ressourcen
 - Visual Studio Code
