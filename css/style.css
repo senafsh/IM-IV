@@ -1,14 +1,10 @@
 body {
-    background-color: #E3DCEC; /* Violette Hintergrundfarbe */
-    
-
+    background-color: #E3DCEC;
 }
 
 .startScreen h1, .startScreen p {
-    color: #ec5c3c; /* Orange Farbe */
-    
+    color: #ec5c3c;
 }
-
 
 header {
     display: flex;
@@ -23,6 +19,7 @@ header {
 }
 
 .header-image {
+<<<<<<< HEAD
     width: 100px; 
     height: auto; 
     position: absolute; /* Absolute Positionierung */
@@ -36,13 +33,25 @@ header {
     background-color: #5D2D9A; /* Violetter Hintergrund */
     margin: 0 auto; /* Zentriert den Container */
     max-width: 100%; /* Begrenzt die maximale Breite des Containers */
+=======
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+#mapContainer {
+    padding: 7%;
+    background-color: #5D2D9A;
+    margin: 0 auto;
+    max-width: 100%;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
     box-sizing: border-box;
 }
 
-
 #map {
-    height: 600px; 
-    width: 100%
+    width: 100%;
 }
 
 .leaflet-tile {
@@ -50,75 +59,97 @@ header {
 }
 
 #dropDownWochentag {
-    width: 100%; /* Stellt sicher, dass das Dropdown die volle Breite seines `div` einnimmt */
-    padding: 1rem 0; /* Vertikaler Abstand vor und nach dem Dropdown */
-    box-sizing: border-box; /* Beinhaltet Padding und Border in der Breite */
-    position: relative; 
+    width: 100%;
+    padding: 1rem 0;
+    box-sizing: border-box;
 }
 
 #dropDownWochentag select {
-    width: 33%;  /* Breite des Dropdowns */
-    padding: 8px;  /* Innenabstand für bessere Lesbarkeit */
-    border: 0.2em solid #E3DCEC;  /* Rahmen des Dropdowns */
-    border-radius: 4px;  /* Abgerundete Ecken */
-    font-size: 16px;  /* Schriftgröße */
-    position: relative; /* Relative Positionierung innerhalb des Containers */
-    z-index: 10; /* Stellt sicher, dass das Dropdown-Menü über anderen Elementen liegt */
+    width: 33%;
+    padding: 8px;
+    border: 0.2em solid #E3DCEC;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 #dropDownWochentag select:focus {
-    border-color: #5D2D9A;  /* Farbe des Rahmens beim Fokussieren */
-    outline: none;  /* Entfernt den Standard-Browser-Fokusrahmen */
+    border-color: #5D2D9A;
+    outline: none;
 }
 
 canvas {
-    width: 100%; /* Vollbreite innerhalb des jeweiligen `div` */
-    max-width: 100%; /* Stellt sicher, dass die Leinwand nicht breiter als das `div` ist */
+    width: 100%;
+    max-width: 100%;
 }
 
+<<<<<<< HEAD
 
 select {
     width: 100%; /* Vollbreite des Dropdown */
     padding: 0.5em; /* Komfortables Innenpolster */
     margin: 0 auto; /* Zentriert das Dropdown-Menü horizontal */
     display: block; /* Stellt sicher, dass das Element die Breite korrekt ausfüllt */
+=======
+.popup-content {
+    padding: 2em;
+    background: white;
+    border-radius: 1em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content b {
+    font-size: 1.2em;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
 }
 
 /* Mobile Styles */
 @media only screen and (max-width: 600px) {
     #map {
-        height: 300px; /* Reduziere die Höhe der Karte auf mobilen Geräten */
+        height: 300px;
     }
 
     .startScreen h1 {
+<<<<<<< HEAD
         font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
         font-size: 2em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
         line-height: 1.2; /* Kleineren Zeilenabstand für h1 */
+=======
+        font-family: 'Abhaya Libre', bold;
+        font-size: 2em;
+        line-height: 1.2;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
     }
 
     .startScreen p {
-        font-family: Lato, sans-serif; /* Serifenlose Schriftart */
-        font-size: 1em; /* Reduziere die Schriftgröße für kleinere Bildschirme */
+        font-family: 'Lato', sans-serif;
+        font-size: 1em;
         line-height: 1.2;
     }
 
     .header-image {
-        width: 50px; /* Kleinere Breite für mobile Geräte */
-        top: 1rem; /* Weniger Abstand vom oberen Rand */
-        right: 1rem; /* Weniger Abstand vom rechten Rand */
-        max-width: 20%; /* Maximal 20% der Bildschirmbreite */
+        width: 50px;
+        top: 1rem;
+        right: 1rem;
     }
 
     #dropDownWochentag {
-        padding: 0.5rem 0; /* Reduziere den vertikalen Abstand */
+        width: 100%;
+        padding: 1rem 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
     }
-
+    
     #dropDownWochentag select {
-        font-size: 20px; /* Kleinere Schriftgröße für das Dropdown-Menü */
-        padding: 6px; /* Weniger Innenabstand */
-    }
+        width: 33%;
+        padding: 8px;
+        border: 0.2em solid #E3DCEC;
+        border-radius: 4px;
+        font-size: 16px;
+    }    
 
     .popup-content {
+<<<<<<< HEAD
         width: 90%; /* Maximal 90% der Bildschirmbreite auf mobilen Geräten */
         max-width: 300px; /* Höchstens 300px breit */
         padding: 10px; /* Innenabstand für das Popup */
@@ -126,45 +157,44 @@ select {
 
     .popup-content canvas {
         max-width: 100%; /* Stellen Sie sicher, dass das Canvas-Element nicht breiter als sein Container ist */
+=======
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .popup-content canvas {
+        padding: 10px;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
     }
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     #map {
-        height: 500px; /* Angepasste Höhe der Karte für Tablets */
+        height: 500px;
     }
 
     .startScreen h1 {
-        font-family: abhaya Libre, bold; /* Serifenlose Schriftart */
-        font-size: 3em; /* Angepasste Schriftgröße für Tablets */
-        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+        font-family: 'Abhaya Libre', bold;
+        font-size: 3em;
+        line-height: 1.5;
     }
 
     .startScreen p {
-        font-family: Lato, sans-serif; /* Serifenlose Schriftart */
-        font-size: 1.5em; /* Angepasste Schriftgröße für Tablets */
-        line-height: 1.5; /* Kleineren Zeilenabstand für h1 */
+        font-family: 'Lato', sans-serif;
+        font-size: 1.5em;
+        line-height: 1.5;
     }
 
     .header-image {
-        width: 75px; /* Angepasste Breite für Tablets */
-        top: 1.5rem; /* Angepasster Abstand vom oberen Rand */
-        right: 1.5rem; /* Angepasster Abstand vom rechten Rand */
-        max-width: 15%; /* Maximal 15% der Bildschirmbreite */
+        width: 75px;
+        top: 1.5rem;
+        right: 1.5rem;
     }
 
-    #dropDownWochentag select {
-        font-size: 16px;
-        padding: 8px;
-    }
     .popup-content {
-        width: 80%; /* Maximal 80% der Bildschirmbreite auf Tablets */
-        max-width: 400px; /* Höchstens 400px breit */
-    }
-
-    .popup-content canvas {
-        max-width: 100%; /* Stellen Sie sicher, dass das Canvas-Element nicht breiter als sein Container ist */
+        width: 80%;
+        max-width: 400px;
     }
 }
 
@@ -176,28 +206,41 @@ select {
 
     .startScreen h1 {
         font-family: 'Abhaya Libre', bold;
+<<<<<<< HEAD
         font-size: 5em;
+=======
+        font-size: 3em;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
         line-height: 1.5;
         padding-top: 1em;
-        
     }
+
     .startScreen p {
+<<<<<<< HEAD
         font-family: Lato, sans-serif; /* Serifenlose Schriftart */
         font-size: 2.0em; /* Größere Schriftgröße für Desktops */
+=======
+        font-family: 'Lato', sans-serif;
+        font-size: 1.5em;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
         line-height: 1.5;
     }
+
     .header-image {
+<<<<<<< HEAD
         width: 300px; /* Standardbreite für Desktops */
         top: 2rem; /* Abstand vom oberen Rand */
         right: 2rem; /* Abstand vom rechten Rand */
         max-width: 15%; /* Maximal 10% der Bildschirmbreite */
+=======
+        width: 100px;
+        top: 2rem;
+        right: 2rem;
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
     }
 
-    #dropDownWochentag select {
-        font-size: 16px;
-        padding: 8px;
-    }
     .popup-content {
+<<<<<<< HEAD
         align-items: center;
         width: 80%; /* Maximal 70% der Bildschirmbreite auf Desktops */
         max-width: 500px; Höchstens 500px breit
@@ -229,3 +272,9 @@ select {
 }
 
 
+=======
+        width: 70%;
+        max-width: 500px;
+    }
+}
+>>>>>>> 90b3f34c7e4a9fd65f819df4ae6c1c5f97f1414e
