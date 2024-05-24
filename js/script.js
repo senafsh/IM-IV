@@ -45,18 +45,13 @@ async function init() {
 
     for (const [key, value] of Object.entries(parkhausDaten)) {
         
-        // console.log(key);
         const parkhausCityDaten = value;
-        // console.log(parkhausCityDaten);
-
         const neuesteDaten = parkhausCityDaten[parkhausCityDaten.length - 1];
 
         const free_spaces = neuesteDaten['free_spaces'];
         const total_spaces = neuesteDaten['total_spaces'];
         const occupied_spaces = total_spaces - free_spaces;
 
-        // console.log('Freie Plätze:', free_spaces);
-        // console.log('Besetzte Plätze:', occupied_spaces);
 
          // Benutzerdefiniertes Icon für den Marker
          var customIcon = L.icon({
@@ -69,15 +64,27 @@ async function init() {
         // Marker für 'Parkhaus City' setzen
         let popupDiv = document.createElement("div");
         popupDiv.classList.add('popup-content');
+
         let neuDat = document.createElement("b");
-        neuDat.innerHTML = `<b>${neuesteDaten.name}</b><br>Freie Plätze: ${free_spaces}<br>Total Plätze: ${total_spaces}<br>`;
+        neuDat.innerHTML = `<b>${neuesteDaten.name}</b>`;
         popupDiv.appendChild(neuDat);
-        let doghnutCanvas = document.createElement("canvas");
-        let linechartCanvas = document.createElement("canvas");
-        popupDiv.appendChild(doghnutCanvas);
-        popupDiv.appendChild(linechartCanvas);
-    
+
+        // Bemerkung "Aktuelle Belegung" und "Total Parkplätze"hinzufügen
+        const totalSpaces = neuesteDaten['total_spaces'];
+        let aktuelleBelegungText = document.createElement("p");
+        aktuelleBelegungText.innerHTML = `<b>Aktuelle Belegung</b><br>Total Parkplätze: ${totalSpaces}`;
+        popupDiv.appendChild(aktuelleBelegungText);
         
+        let doghnutCanvas = document.createElement("canvas");
+        popupDiv.appendChild(doghnutCanvas);
+
+        // Bemerkung "Prognose" hinzufügen
+        let prognoseText = document.createElement("p");
+        prognoseText.innerHTML = "<b>Prognose</b>";
+        popupDiv.appendChild(prognoseText);
+
+        let linechartCanvas = document.createElement("canvas");
+        popupDiv.appendChild(linechartCanvas);
 
         // Doughnut-Diagramm erstellen
         const labelsDoughnut = ['Freie Parkplätze', 'Besetzte Parkplätze'];
@@ -96,8 +103,15 @@ async function init() {
         doughnutChart = new Chart(doghnutCanvas, {
             type: 'doughnut',
             data: doughnutData,
-            options: {}
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
         });
+           
 
         // Liniendiagramm erstellen
         const vorhersageBasel = document.querySelector('#vorhersageDiagramm');
@@ -118,6 +132,11 @@ async function init() {
             type: 'line',
             data: lineData,
             options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
                 scales: {
                     x: {
                         ticks: {
@@ -129,7 +148,7 @@ async function init() {
                         beginAtZero: true,
                         suggestedMax: total_spaces,
                         ticks: {
-                            stepSizes: 100
+                            stepSize: 100
                         }
                     }
                 }
@@ -150,7 +169,7 @@ async function init() {
                 let markerLatLng = e.target.getLatLng();
                 
                 // Berechne die neue Position, um Platz für das Popup zu schaffen
-                let offset = [0, 250]; // Beispiel-Offset: 100 Pixel nach oben
+                let offset = [0, 300];
                 let newLatLng = map.project(markerLatLng).subtract(offset);
                 newLatLng = map.unproject(newLatLng);
                 
