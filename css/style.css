@@ -208,7 +208,7 @@ select {
     }
     .popup-content {
         width: 70%; /* Maximal 70% der Bildschirmbreite auf Desktops */
-        max-width: 500px; /* Höchstens 500px breit */
+        max-width: 500px; Höchstens 500px breit
     }
 
     .popup-content canvas {
@@ -226,6 +226,14 @@ select {
 
 .popup-content b {
     font-size: 1.2em; /* Schriftgröße für den Text im Popup */
+}
+
+.leaflet-popup-content {
+    width: 500px; /* Breite des Popups */
+} 
+
+.leaflet-popup {
+    width: 500px; /* Breite des Popups */
 }
 
 /* Additional Media Queries for responsive mode in browser tools */
